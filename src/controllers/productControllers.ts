@@ -86,17 +86,18 @@ export const productController = {
   },
 
   deleteData: async (req: Request, res: Response) => {
-    try {
-      const { id } = req.params;
+    console.log("masuk");
+  //   try {
+  //     const { id } = req.params;
 
-      const deletedProduct = await Product.findByIdAndDelete(id);
-      if (!deletedProduct) {
-        return res.status(404).json({ message: "Item tidak ditemukan" });
-      }
+  //     const deletedProduct = await Product.findByIdAndDelete(id);
+  //     if (!deletedProduct) {
+  //       return res.status(404).json({ message: "Item tidak ditemukan" });
+  //     }
 
-      return res.json({ message: "Item terhapus", data: deletedProduct });
-    } catch (error) {
-      return res.status(500).json({ message: "Error mengapus item", error });
-    }
-  },
+  //     return res.json({ message: "Item terhapus", data: deletedProduct });
+  //   } catch (error) {
+  //     return res.status(500).json({ message: "Error mengapus item", error });
+  //   }
+  // },
 };
