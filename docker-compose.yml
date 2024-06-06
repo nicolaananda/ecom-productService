@@ -1,27 +1,23 @@
 version: "3.8"
 
 services:
-  expressjs:
+  product-service:
     build: .
+    container_name: productservice
     ports:
       - "8003:8003"
     depends_on:
-      - mongodb
+      - mongo
 
-  mongodb:
-    image: mongo
+  mongo:
+    image: mongo:latest
+    container_name: mongodb
     ports:
       - "27017:27017"
     volumes:
-      - type: volume
-        source: mongovolume
-        target: /data/db
-      - type: volume
-        source: mongoconfig
-        target: /data/configdb
+      - mongovolume:/data/db
+      - mongoconfig:/data/configdb
 
 volumes:
   mongovolume:
-    name: mongovolume
   mongoconfig:
-    name: mongoconfig
